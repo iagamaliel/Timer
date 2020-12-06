@@ -44,6 +44,8 @@
 
 				if (duration > timer)
 					animateprogress("#timer", "#clock", document.getElementById("Duration").value);
+				else
+					animateprogress("#timer", "#clock", 0);
 			}
 
 			document.querySelector('#reset').addEventListener ('click', function() { 
