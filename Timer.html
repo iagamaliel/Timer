@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Timer</title>
+		<link rel="stylesheet" href="Css/style.css" />
+		<script src="Js/animateprogress.js"></script>
+	</head>
+	<body>
+		<div class="center">
+			<div class="progress">
+				<label>Elapsed Time : </label>
+				<progress id="timer" max="1500" value="1500"></progress>
+				<span></span>
+			</div>
+
+			<div class="clear"></div>
+
+			<div class="progress">
+				<label id="clock"></label>
+			</div>
+
+			<div class="clear"></div>
+
+			<div class="progress"></div>
+				<label>Duration : </label>
+				<input type="range" id="Duration" name="Duration" min="0" max="1500"></input>
+			</div>
+
+			<div class="clear"></div>
+
+			<input type="button" id="reset" value="Reset" />
+		</div>
+
+		<script type="text/javascript"> 
+
+			window.onload = function() { 
+				animateprogress("#timer", "#clock",  document.getElementById("Duration").value);
+			}
+			
+			let timerAvance = function () {
+				let duration 	= document.getElementById("Duration").value;
+				let timer 		= document.getElementById("timer").value;
+
+				if (duration > timer)
+					animateprogress("#timer", "#clock", document.getElementById("Duration").value);
+			}
+
+			document.querySelector('#reset').addEventListener ('click', function() { 
+				timerAvance();
+			});
+
+			document.querySelector('#Duration').addEventListener ('input', function() { 
+				timerAvance();
+			});
+
+		</script>
+	</body>
+</html>
